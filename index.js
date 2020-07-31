@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
+
 
 
 // These are the questions it will ask when you run the app
