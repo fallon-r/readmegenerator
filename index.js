@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 
 // These are the questions it will ask when you run the app
@@ -17,7 +18,7 @@ const questions = [
     },
     {
         type:"input",
-        name:"pojName",
+        name:"projName",
         message:"What's the project's name?"
     },
     {   
@@ -32,19 +33,10 @@ const questions = [
     },
     {   
         type:"list",
-        name:"licenseJoke",
-        message:"What license will your project have?",
-        choices:["MIT", "GPL 3.0", "BSD", "Driver's","None"],
-        // validate:licenseVal
-    },
-    {   
-        type:"list",
         name:"license",
-        message:"Don't get cute, buddy",
-        choices:["MIT", "GPL 3.0", "BSD", "None"],
-        when: function (answer){
-            return answer.licenseJoke === "Driver's"
-        }
+        message:"What license will your project have?",
+        choices:["MIT", "GPL 3.0", "BSD","None"],
+        // validate:licenseVal
     },
     {
         type: "confirm",
