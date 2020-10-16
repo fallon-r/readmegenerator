@@ -1,104 +1,102 @@
-const axios = require("axios")
+// const axios = require("axios")
 
 
-function generateProjectUrl(github, title) {
-  const kebabCaseTitle = title.toLowerCase().split(" ").join("-");
-  return `https://github.com/${github}/${kebabCaseTitle}`;
-}
+// function generateProjectUrl(github, title) {
+//   const kebabCaseTitle = title.toLowerCase().split(" ").join("-");
+//   return `https://github.com/${github}/${kebabCaseTitle}`;
+// }
 
-function generateAvatarUrl(github){  
-    axios.get("https://api.github.com/users/" + github).then(
-      response => {
-        // console.log(response.data.avatar_url)
-        return response.data.avatar_url
-      }).catch(error=>"error")
-  }
+// function generateAvatarUrl(github){  
+//     const url = axios.get("https://api.github.com/users/" + github).then(
+//       response => {
+//         // console.log(response.response.avatar_url)
+//         return response.response.avatar_url
+//       }).catch(error=>"error")
+      
+//       return url
+//   }
 
-function renderLicenseBadge(license, github, title) {
-  if (license !== "None") {
-    return `[![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)](${generateProjectUrl(github, title)})`
-  }
-  return ''
-}
+// function renderLicenseBadge(license, github, title) {
+//   if (license !== "None") {
+//     return `[![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)](${generateProjectUrl(github, title)})`
+//   }
+//   return ''
+// }
 
-function renderAvatar(github){  
-    // const avatar = generateAvatarUrl(github);
-    // console.log(avatar)
-    console.log(generateAvatarUrl(github))
-     return `[![${github}](${github})](https://github.com/${github})`
-}
+// function renderAvatar(github, avatar){  
+//     // const avatar = generateAvatarUrl(github);
+//     // console.log(avatar)
+//      return `[![${github}](${avatar})](https://github.com/${github})`
+// }
 
-function renderLicenseSection(license) {
-  if (license !== "None") {
-    return (
-      `## License
+// function renderLicenseSection(license) {
+//   if (license !== "None") {
+//     return (
+//       `## License
 
-This project is licensed under the ${license} license.`
-    )
-  }
-  return ''
-}
-
-
-
-async function generateMarkdown(data) {
+// This project is licensed under the ${license} license.`
+//     )
+//   }
+//   return ''
+// }
 
 
-await generateAvatarUrl("rf-spuds");;
+// function generateMarkdown(response) {
 
-  return `
-# ${data.title}
-${renderLicenseBadge(data.license, data.github, data.title, data.url)}
-${renderAvatar(data.github)}
-## Description
 
-${data.description}
+//   return `
+// # ${response.title}
+// ${renderLicenseBadge(response.license, response.github, response.title, response.url)}
+// ${renderAvatar(response.github,aUrl)}
+// ## Description
 
-## Table of Contents 
+// ${response.description}
 
-* [Installation](#installation)
+// ## Table of Contents 
 
-* [Usage](#usage)
+// * [Installation](#installation)
 
-* [License](#license)
+// * [Usage](#usage)
 
-* [Contributing](#contributing)
+// * [License](#license)
 
-* [Tests](#tests)
+// * [Contributing](#contributing)
 
-* [Questions](#questions)
+// * [Tests](#tests)
 
-## Installation
+// * [Questions](#questions)
 
-To install necessary dependencies, run the following command:
+// ## Installation
 
-\`\`\`
-${data.installation}
-\`\`\`
+// To install necessary dependencies, run the following command:
 
-## Usage
+// \`\`\`
+// ${response.installation}
+// \`\`\`
 
-${data.usage}
+// ## Usage
 
-${renderLicenseSection(data.license)}
+// ${response.usage}
+
+// ${renderLicenseSection(response.license)}
   
-## Contributing
+// ## Contributing
 
-${data.contributing}
+// ${response.contributing}
 
-## Tests
+// ## Tests
 
-To run tests, run the following command:
+// To run tests, run the following command:
 
-\`\`\`
-${data.test}
-\`\`\`
+// \`\`\`
+// ${response.test}
+// \`\`\`
 
-## Questions
+// ## Questions
 
-If you have any questions about the repo, open an issue or contact [${data.github}](${data.url}) directly at ${data.email}.
+// If you have any questions about the repo, open an issue or contact [${response.github}](${response.url}) directly at ${response.email}.
 
-`;
-}
+// `;
+// }
 
-module.exports = generateMarkdown;
+// module.exports = generateMarkdown;
