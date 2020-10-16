@@ -1,15 +1,18 @@
 const axios = require("axios")
 
-// declaring avatar
-var avatar;
-
-console.log(avatar);
-console.log('-------');
 
 function generateProjectUrl(github, title) {
   const kebabCaseTitle = title.toLowerCase().split(" ").join("-");
   return `https://github.com/${github}/${kebabCaseTitle}`;
 }
+
+function generateAvatarUrl(github){  
+    axios.get("https://api.github.com/users/" + github).then(
+      response => {
+        // console.log(response.data.avatar_url)
+        return response.data.avatar_url
+      }).catch(error=>"error")
+  }
 
 function renderLicenseBadge(license, github, title) {
   if (license !== "None") {
@@ -19,13 +22,10 @@ function renderLicenseBadge(license, github, title) {
 }
 
 function renderAvatar(github){  
-  axios.get("https://api.github.com/users/" + github).then(
-    response => {
-      avatar = response.data.avatar_url;
-    //  return `[![${github}](${avatar})](https://github.com/${github})`
-    return avatar;
-    }).catch(error=>"error")
-    console.log(avatar)
+    // const avatar = generateAvatarUrl(github);
+    // console.log(avatar)
+    console.log(generateAvatarUrl(github))
+     return `[![${github}](${github})](https://github.com/${github})`
 }
 
 function renderLicenseSection(license) {
@@ -39,7 +39,13 @@ This project is licensed under the ${license} license.`
   return ''
 }
 
-function generateMarkdown(data) {
+
+
+async function generateMarkdown(data) {
+
+
+await generateAvatarUrl("rf-spuds");;
+
   return `
 # ${data.title}
 ${renderLicenseBadge(data.license, data.github, data.title, data.url)}
