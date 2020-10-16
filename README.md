@@ -1,10 +1,7 @@
 
-# undefined
-
-#![Github Avatar[(undefined)
-
-![Github license](https://img.shields.io/badge/license-MIT-blue.svg)()
-
+# 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rf-spuds/)
+undefined
 ## Description
 
 
@@ -28,7 +25,7 @@
 To install necessary dependencies, run the following command:
 
 ```
-undefined
+npm i
 ```
 
 ## Usage
@@ -53,5 +50,5 @@ npm test
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact [](undefined) directly at .
+If you have any questions about the repo, open an issue or contact [rf-spuds]() directly at .
 

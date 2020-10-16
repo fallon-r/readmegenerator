@@ -3,87 +3,71 @@ const path = require("path");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-
 // These are the questions it will ask when you run the app
 const questions = [
-    {
-        type: "input",
-        name: "githubUser",
-        message: "What is your username on github?"
-    },
-    {
-        type: "input",
-        name: "ghEmail",
-        message: "What email do you use for Github?"
-    },
-    {
-        type:"input",
-        name:"projName",
-        message:"What's the project's name?"
-    },
-    {   
-        type:"input",
-        name:"projUrl",
-        message:"Add a link to the deployed version of your project"
-    },
-    {   
-        type:"input",
-        name:"description",
-        message:"Write a short description of your project"
-    },
-    {   
-        type:"list",
-        name:"license",
-        message:"What license will your project have?",
-        choices:["MIT", "GPL 3.0", "BSD","None"],
-        // validate:licenseVal
-    },
-    {
-        type: "confirm",
-        name:"needNPM",
-        message:"Does this require any installation?",
-    },
-    {
-        input:"input",
-        name:"installInstruction",
-        message:"What are the installation steps?",
-        default:"npm i",
-        when: function(answers){
-            return answers.needNPM === true;
-        }
-    },
-    {
-        input:"input",
-        name:"test",
-        message:"What is the command for tests?",
-        default:"npm test"
-    },
-    {
-        input:"input",
-        name:"instructions",
-        message:"Are there any special things to know about this repo?"
-    },
-    {
-        input:"input",
-        name:"contributors",
-        message:"How can people contribute to your project?"
-    }
-    
-
+  {
+    type: "input",
+    name: "github",
+    message: "What is your Github username?",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is your email?",
+  },
+  {
+    type: "input",
+    name: "url",
+    message: "the URL to your project?",
+  },
+  {
+    type: "input",
+    name: "title",
+    message: "What is your project's name?",
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "Please write a short description of your project",
+  },
+  {
+    type: "list",
+    name: "license",
+    message: "What kind of license should your project have?",
+    choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"],
+  },
+  {
+    type: "input",
+    name: "installation",
+    message: "What command should be run to install dependencies?",
+    default: "npm i",
+  },
+  {
+    type: "input",
+    name: "test",
+    message: "What command should be run to run tests?",
+    default: "npm test",
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "What does the user need to know about using the repo?",
+  },
+  {
+    type: "input",
+    name: "contributing",
+    message: "What does the user need to know about contributing to the repo?",
+  },
 ];
 
-
-
 function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
 function init() {
-    inquirer.prompt(questions).then((inquirerResponses) => {
-        writeToFile("README.md", generateMarkdown({ ...inquirerResponses }))
-    }
-    )
-
+  inquirer.prompt(questions).then((inquirerResponses) => {
+    writeToFile("README.md", generateMarkdown({ ...inquirerResponses }));
+  });
 }
 
 init();

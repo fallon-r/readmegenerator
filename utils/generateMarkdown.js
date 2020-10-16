@@ -1,28 +1,31 @@
-const axios = require("axios");
+const axios = require("axios")
 
+// declaring avatar
+var avatar;
 
+console.log(avatar);
+console.log('-------');
 
-
-
-
-// var githubPicture = `![Github Picture of ${githubUser}](${avatarUrl})`;
-
-
-function getProjUrl (githubUser, projName){
-
-  return `https://github.com/${githubUser}/${projName}`
-
+function generateProjectUrl(github, title) {
+  const kebabCaseTitle = title.toLowerCase().split(" ").join("-");
+  return `https://github.com/${github}/${kebabCaseTitle}`;
 }
 
-
-function getLicense(license, projUrl){
-
-  if(license === 'None'){
-    return ''
-  }else{
-    return `![Github license](https://img.shields.io/badge/license-${license}-blue.svg)(${projUrl})`
+function renderLicenseBadge(license, github, title) {
+  if (license !== "None") {
+    return `[![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)](${generateProjectUrl(github, title)})`
   }
+  return ''
+}
 
+function renderAvatar(github){  
+  axios.get("https://api.github.com/users/" + github).then(
+    response => {
+      avatar = response.data.avatar_url;
+    //  return `[![${github}](${avatar})](https://github.com/${github})`
+    return avatar;
+    }).catch(error=>"error")
+    console.log(avatar)
 }
 
 function renderLicenseSection(license) {
@@ -37,24 +40,10 @@ This project is licensed under the ${license} license.`
 }
 
 function generateMarkdown(data) {
-
-  var avatarUrl;
-  axios.get(`https://api.github.com/users/${data.githubUser}`)
-  .then( res => {
-    avatarUrl = res.avatar_url
-  })
-  .catch(err =>{
-    console.log(err)
-  });
-
-
   return `
 # ${data.title}
-
-#![Github Avatar[(${avatarUrl})
-
-${getLicense(data.license, data.githubUser, data.projName, data.projUrl)}
-
+${renderLicenseBadge(data.license, data.github, data.title, data.url)}
+${renderAvatar(data.github)}
 ## Description
 
 ${data.description}
@@ -78,18 +67,18 @@ ${data.description}
 To install necessary dependencies, run the following command:
 
 \`\`\`
-${data.installInstructions}
+${data.installation}
 \`\`\`
 
 ## Usage
 
-${data.instructions}
+${data.usage}
 
 ${renderLicenseSection(data.license)}
   
 ## Contributing
 
-${data.contributors}
+${data.contributing}
 
 ## Tests
 
@@ -101,11 +90,9 @@ ${data.test}
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact [${data.githubUser}](${data.url}) directly at ${data.ghEmail}.
+If you have any questions about the repo, open an issue or contact [${data.github}](${data.url}) directly at ${data.email}.
 
 `;
 }
-
-
 
 module.exports = generateMarkdown;
