@@ -72,13 +72,13 @@ inquirer.prompt([
     })
 });
 
-const dataDump = ({github, url, email, title, description, license, installation, test, usage, contributing}, avatar, name, githubPage) { 
+const dataDump = ({github, url, email, title, description, license, installation, test, usage, contributing}, avatar, name, githubPage) =>{ 
     return `
-# ${response.title}
+# ${title}
 
 ## Description
 
-${response.description}
+${description}
 
 ## Table of Contents 
 
@@ -99,31 +99,31 @@ ${response.description}
 To install necessary dependencies, run the following command:
 
 \`\`\`
-${response.installation}
+${installation}
 \`\`\`
 
 ## Usage
 
-${response.usage}
+${usage}
 
 [![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)](${url})  
 ## Contributing
 
-${response.contributing}
+${contributing}
 
 ## Tests
 
 To run tests, run the following command:
 
 \`\`\`
-${response.test}
+${test}
 \`\`\`
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact [${name}](${githubPage}) directly at ${response.email}.
+If you have any questions about the repo, open an issue or contact [${name}](${githubPage}) directly at ${email}.
 
 [![${github}](${avatar})](${githubPage})
 
 `;
-}
+};

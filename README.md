@@ -1,7 +1,6 @@
 
 # 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rf-spuds/)
-[![rf-spuds]([object Promise])](https://github.com/rf-spuds)
+
 ## Description
 
 
@@ -32,10 +31,7 @@ npm i
 
 
 
-## License
-
-This project is licensed under the MIT license.
-  
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]()  
 ## Contributing
 
 
@@ -50,5 +46,7 @@ npm test
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact [rf-spuds]() directly at .
+If you have any questions about the repo, open an issue or contact [Ryan Fallon](https://github.com/rf-spuds) directly at .
+
+[![rf-spuds](https://avatars0.githubusercontent.com/u/59809797?v=4)](https://github.com/rf-spuds)
 
