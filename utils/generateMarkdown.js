@@ -20,7 +20,7 @@ function getLicense(license, projUrl){
   if(license === 'None'){
     return ''
   }else{
-    return `![Github license](https://imgshields.io/badge/license-${license}-blue.svg)(${projUrl})`
+    return `![Github license](https://img.shields.io/badge/license-${license}-blue.svg)(${projUrl})`
   }
 
 }

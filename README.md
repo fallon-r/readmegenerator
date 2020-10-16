@@ -3,11 +3,11 @@
 
 #![Github Avatar[(undefined)
 
-![Github license](https://imgshields.io/badge/license-MIT-blue.svg)(rf-spuds)
+![Github license](https://img.shields.io/badge/license-MIT-blue.svg)()
 
 ## Description
 
-A simple readme generator
+
 
 ## Table of Contents 
 
@@ -33,7 +33,7 @@ undefined
 
 ## Usage
 
-This uses axios and inquirer
+
 
 ## License
 
@@ -41,7 +41,7 @@ This project is licensed under the MIT license.
   
 ## Contributing
 
-email me
+
 
 ## Tests
 
@@ -53,5 +53,5 @@ npm test
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact [rf-spuds](undefined) directly at rfspuds@gmail.com.
+If you have any questions about the repo, open an issue or contact [](undefined) directly at .
 
