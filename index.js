@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path")
 const inquirer = require("inquirer");
 const axios = require("axios");
 
@@ -18,7 +17,7 @@ inquirer.prompt([
     {
         type: "input",
         name: "url",
-        message: "the URL to your project?",
+        message: "What is the URL to your project?",
     },
     {
         type: "input",
@@ -34,7 +33,7 @@ inquirer.prompt([
         type: "list",
         name: "license",
         message: "What kind of license should your project have?",
-        choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"],
+        choices: ["MIT", "APACHE", "GPL", "BSD", "None"],
     },
     {
         type: "input",
