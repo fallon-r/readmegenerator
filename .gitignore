@@ -1,3 +1,5 @@
 node_modules
 .env
 purgatory.js
+sandbox
+test.md

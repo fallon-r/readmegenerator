@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path")
 const inquirer = require("inquirer");
 const axios = require("axios");
 
@@ -123,7 +124,11 @@ ${test}
 
 If you have any questions about the repo, open an issue or contact [${name}](${githubPage}) directly at ${email}.
 
-[![${github}](${avatar})](${githubPage})
+<a href="${githubPage}" target="_blank">
+
+<img src="${avatar}" alt="${github}" height=200px width=200px>
+</a>
+
 
 `;
 };

@@ -48,5 +48,9 @@ npm test
 
 If you have any questions about the repo, open an issue or contact [Ryan Fallon](https://github.com/rf-spuds) directly at .
 
-[![rf-spuds](https://avatars0.githubusercontent.com/u/59809797?v=4)](https://github.com/rf-spuds)
+<a href="https://github.com/rf-spuds" target="_blank">
+
+<img src="https://avatars0.githubusercontent.com/u/59809797?v=4" alt="rf-spuds" height=200px width=200px>
+</a>
+
 
