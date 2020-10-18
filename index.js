@@ -2,6 +2,14 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const axios = require("axios");
 
+// This validates that a fields is filled
+const answerValidation = async(input)=>{
+  if(input.trim() === ""|| input.trim() === null){
+    return "This is a required field; you must re-run this program."
+  }
+  return true
+}
+
 // These are the questions it will ask when you run the app
 inquirer
   .prompt([
@@ -9,6 +17,8 @@ inquirer
       type: "input",
       name: "github",
       message: "What is your Github username?",
+      validate: answerValidation
+      
     },
     {
       type: "input",
@@ -70,7 +80,7 @@ inquirer
 
       const data = dataDump(response, avatar, name, githubPage);
 
-      fs.writeFile("README.md", data, function () {});
+      fs.writeFile("./export/README.md", data, function () {});
     });
   });
 
